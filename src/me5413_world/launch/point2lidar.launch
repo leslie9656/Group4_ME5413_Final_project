@@ -1,0 +1,30 @@
+<launch>
+  <arg name="input_topic" default="/mid/points"/>
+  <arg name="output_topic" default="/scan"/>
+  <arg name="range_min" default="0.1"/>
+  <arg name="range_max" default="10.0"/>
+  <arg name="scan_time" default="0.1"/>
+
+  <node pkg="pcl_ros" type="convert_pointcloud_to_image" name="pointcloud_to_image">
+    <remap from="depth" to="$(arg input_topic)"/>
+    <param name="encoding" value="32FC1"/>
+    <param name="sensor_model" value="pinhole"/>
+    <param name="cx" value="0.0"/>
+    <param name="cy" value="0.0"/>
+    <param name="fx" value="564.8"/>
+    <param name="fy" value="564.8"/>
+    <param name="height" value="480"/>
+    <param name="width" value="640"/>
+    <param name="max_range" value="$(arg range_max)"/>
+    <param name="no_points_value" value="NaN"/>
+  </node>
+
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
+    <remap from="image" to="/camera/depth/image_raw"/>
+    <remap from="scan" to="$(arg output_topic)"/>
+    <param name="output_frame_id" value="base_link"/>
+    <param name="range_min" value="$(arg range_min)"/>
+    <param name="range_max" value="$(arg range_max)"/>
+    <param name="scan_time" value="$(arg scan_time)"/>
+  </node>
+</launch>

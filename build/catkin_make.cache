@@ -1,0 +1,2 @@
+interactive_tools:jackal_description:laser_proc:me5413_world
+-DCATKIN_DEVEL_PREFIX=/home/greg/ME5413_Final_Project/devel -DCMAKE_INSTALL_PREFIX=/home/greg/ME5413_Final_Project/install -G Unix Makefiles

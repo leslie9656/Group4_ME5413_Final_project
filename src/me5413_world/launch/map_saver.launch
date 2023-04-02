@@ -1,0 +1,8 @@
+<launch>
+  <!-- Launch the map modifier node to modify the map -->
+  <node name="map_modifier" pkg="me5413_world" type="map_modifier.py" output="screen" />
+
+  <!-- Save the modified map using the map_saver node -->
+  <node name="map_saver" pkg="map_server" type="map_saver" args="-f $(find me5413_world)/maps/my_map map:=/modified_map" />
+</launch>
+
