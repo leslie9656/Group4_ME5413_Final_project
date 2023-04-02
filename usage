@@ -1,0 +1,13 @@
+cd ME5413_Final_Project
+source devel/setup.bash
+roslaunch me5413_world world.launch
+
+
+roslaunch me5413_world mapping.launch
+
+roscd me5413_world/maps/
+rosrun map_server map_saver -f my_map map:=/modified_map
+
+roslaunch me5413_world map_saver.launch
+
+roslaunch me5413_world navigation.launch
