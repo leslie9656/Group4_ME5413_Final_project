@@ -152,8 +152,7 @@ rosbag record -O my_data.bag /sensor1 /sensor2
 After you finishing mapping, run the following command in the third terminal to save the map:
 
 ```bash
-roscd me5413_world/maps/
-rosrun map_server map_saver -f my_map map:=/map
+roslaunch me5413_world map_saver.launch
 ```
 Then you return the terminal of recording, click ctrl+c and save bag. The bag should save at you /home. 
 
