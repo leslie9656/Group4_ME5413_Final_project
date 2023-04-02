@@ -175,14 +175,6 @@ Open new terminal or keep second terminal:
 roslaunch me5413_world navigation.launch
 ```
 
-## Improvement of project
-
-### 1. Improvement of Mapping
-Like the second test, we obtain the new data by the 3D-lidar (project to 2D-lidar) and new imu sensor and record them into 3333.bag. In this test, the RMSE is 0.336, which is the smallest among three tests. The victual result show that the whole trajectory is most accurate. 
-
-
-### 2. Improvement of navigation
-
 
 ## Contribution
 
